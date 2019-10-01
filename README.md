@@ -70,14 +70,14 @@ len(cities)
 
 
 ```python
-# Create base URL and indicate imperial units
+#create base url
 url = "http://api.openweathermap.org/data/2.5/weather?"
 units = "imperial"
 
-# build query url
+#build query url
 query_url = f"{url}units={units}&appid={api_key}&q="
 
-# create list for dataframe
+#create list for dataframe
 lats = []
 lngs = []
 temp_max = []
@@ -88,15 +88,14 @@ country = []
 cities_df = []
 dates = []
 
-# set initial count quantities for organization
+#set initial count 
 count_one = 0
 set_one = 1
 
-# Log file print statement
+#beginning statement
 print(f"Beginning Data Retrieval")
 print(f"-------------------------------")
 
-# loops for creating dataframe columns
 for city in cities:
     try:
         response = requests.get(query_url + city.replace(" ","&")).json()
@@ -1321,10 +1320,10 @@ weather_df.head()
 
 
 ```python
-# Build a scatter plot for each data type
+#create scatter plot, Lat vs. Temp
 plt.scatter(weather_df["Lat"], weather_df["Max Temp"], facecolors = "blue", edgecolors = "black",  marker = "o", s = 10)
 
-# Incorporate the other graph properties
+#indicate title, ylabel, xlabel, and etc..
 plt.title("City Latitude vs. Max Temperature")
 plt.ylabel("Max Temperature (F)")
 plt.xlabel("Latitude")
@@ -1332,10 +1331,10 @@ plt.grid(True)
 plt.ylim(-80, 150)
 plt.xlim(-80, 100)
 
-# Show plot
+#show plot
 plt.show()
 
-# Save the figure
+#save the figure
 plt.savefig("Temperature(F)_vs_Latitude.png")
 ```
 
@@ -1351,10 +1350,10 @@ plt.savefig("Temperature(F)_vs_Latitude.png")
 
 
 ```python
-# Build a scatter plot for each data type
+#create scatterplot, Lat vs. Humidity
 plt.scatter(weather_df["Lat"], weather_df["Humidity"], facecolors = "b", edgecolors = "black",  marker = "o", s = 10)
 
-# Incorporate the other graph properties
+#indicate title, ylabel, xlabel, and etc..
 plt.title("City Latitude vs. Humidity")
 plt.ylabel("Humidity (%)")
 plt.xlabel("Latitude")
@@ -1362,10 +1361,10 @@ plt.grid(True)
 plt.ylim(-20, 120)
 plt.xlim(-80, 100)
 
-# Show plot
+#show plot
 plt.show()
 
-# Save the figure
+#save the figure
 plt.savefig("Humidity(%)_vs_Latitude.png")
 ```
 
@@ -1381,10 +1380,10 @@ plt.savefig("Humidity(%)_vs_Latitude.png")
 
 
 ```python
-# Build a scatter plot for each data type
+#create scatterplot, Lat vs. Cloudiness
 plt.scatter(weather_df["Lat"], weather_df["Cloudiness"], facecolors = "b", edgecolors = "black",  marker = "o", s = 10)
 
-# Incorporate the other graph properties
+#indicate title, ylabel, xlabel, and etc..
 plt.title("City Latitude vs. Cloudiness")
 plt.ylabel("Cloudiness (%)")
 plt.xlabel("Latitude")
@@ -1392,10 +1391,10 @@ plt.grid(True)
 plt.ylim(-20, 120)
 plt.xlim(-80, 100)
 
-# Show plot
+#show plot
 plt.show()
 
-# Save the figure
+#save the figure
 plt.savefig("Cloudiness(%)_vs_Latitude.png")
 ```
 
@@ -1411,10 +1410,10 @@ plt.savefig("Cloudiness(%)_vs_Latitude.png")
 
 
 ```python
-# Build a scatter plot for each data type
+#create scatterplot, Lat vs. Wind Speed
 plt.scatter(weather_df["Lat"], weather_df["Wind Speed"], facecolors = "b", edgecolors = "black",  marker = "o", s = 10)
 
-# Incorporate the other graph properties
+#indicate title, ylabel, xlabel, and etc..
 plt.title("City Latitude vs. Wind Speed")
 plt.ylabel("Wind Speed (mph)")
 plt.xlabel("Latitude")
@@ -1422,10 +1421,10 @@ plt.grid(True)
 plt.ylim(-5, 40)
 plt.xlim(-80, 100)
 
-# Show plot
+#show plot
 plt.show()
 
-# Save the figure
+#save the figure
 plt.savefig("Wind_Speed(mph)_vs_Latitude.png")
 ```
 
